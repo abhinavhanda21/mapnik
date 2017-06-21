@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map background-color="#f2efe9" srs="+proj=latlong +datum=WGS84">
+	<FontSet name="book-fonts">
+		<Font face-name="DejaVu Sans Book" />
+	</FontSet>
+	<Style name="highways">
+		<Rule>
+			<Filter>[highway] &lt;&gt;''</Filter>
+			<LineSymbolizer stroke="#808080" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" />
+            <LinePatternSymbolizer width="10" height="10" type="png" file="/home/abhinav/Downloads/hospital-marker.svg"/>
+		</Rule>
+		<Rule>
+			<Filter>[highway] &lt;&gt;''</Filter>
+			<TextSymbolizer face-name="DejaVu Sans Book" size="10" placement="point" dy="8" fill="black" placement-type="list">[name] 
+             <Placement size="10" dy="-8" fill="blue"/><!-- Reduces text size and changes offset -->
+             </TextSymbolizer>
+        </Rule> 
+        <Rule>
+        	<PolygonSymbolizer fill-opacity="0.07" fill="steelblue"/>
+        </Rule> 
+	</Style>
+	<Layer name="highways" status="on" srs="+proj=latlong +datum=WGS84">
+		<StyleName>highways</StyleName>
+		<Datasource>
+			<Parameter name="type">osm</Parameter>
+			<Parameter name="file">map(2).osm</Parameter>
+		</Datasource>
+	</Layer>
+</Map>
